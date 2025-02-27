@@ -8,8 +8,8 @@
 
 
 using namespace std;
-// this function prints the elements of an array
-// [] dereferences the pointer
+// this function modifies the value that iptr points to
+// it is in essence the same as passing by reference
 void increment(int* iptr) {
     (*iptr)++;
 }
