@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-/* 3/4/2025 
+/* 10/22/2025 
 
 What is dynamic memory?
 memory allocated during runtime (on the heap)
@@ -30,5 +30,8 @@ int main() {
     cout << endl;
     delete[] numbers; // deallocate the memory
     numbers = nullptr; // set numbers to nullptr to avoid dangling pointer
+    if (numbers!= nullptr) {
+        numbers[0] = 100; 
+    }
     return 0;
 }

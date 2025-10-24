@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstddef> // for size_t
-/** 2/27
+/** 
  * pointer arithmetic -- when you add an integer to a pointer, the pointer
  * effectively moves that many elements in memory.
  *
@@ -20,6 +20,7 @@ void print_array(int *arr, size_t size)
     {
         cout << arr[i] << " ";
         cout << *(arr + i) << " "; // identical to the line above
+        cout << "*arr+i, without the parenthesis: " << *arr + i << " " << endl; 
     }
     cout << endl;
     // let's use a pointer to iterate through the array
@@ -40,7 +41,7 @@ int main()
 {
     int arr[]{10, 20, 30, 40, 50};
     // the name of the array is the address of the first element of the array
-    int *iptr = arr; // iptr points to the first element of the array
+    int* iptr = arr; // iptr points to the first element of the array
     // same thing as: int* iptr = &arr[0];
     iptr[2] = 100; // arr[2] is now 100
     print_array(arr, sizeof(arr) / sizeof(arr[0]));

@@ -16,7 +16,7 @@ Exception Handling:
 */
 int *createArray(int num) 
 {
-    int *arr = new int[9000000000000000]{5, 4}; // allocate memory for an array of ints
+    int *arr = new int[num]{5, 4}; // allocate memory for an array of ints
     // the empty braces initialize the memory to 0
     return arr;
 }
@@ -31,6 +31,10 @@ int main()
         {
             throw "Invalid size";
         }
+       // if (num > 1000000)
+       // {
+       //     throw bad_alloc();
+       //  }   the new operator will automatically throw bad_alloc if it fails
         int *numbers = createArray(num);
         for (int i{0}; i < num; ++i)
         {
@@ -40,7 +44,7 @@ int main()
         delete[] numbers;  // deallocate the memory
         numbers = nullptr; // set numbers to nullptr to avoid dangling pointer
     }
-    catch (const char *str)
+    catch (const char *str) // catches c-string or string literal
     {
         cout << "An error occurred: " << str << endl;
     }

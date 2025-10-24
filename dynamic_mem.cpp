@@ -11,10 +11,12 @@ why use dynamic memory?
 - when you need more memory than is allowed on the stack
 
 - when you need to allocate memory for an object that will be returned from a function
+  by reference or as a pointer
 
 */
-void practice() {
+int* practice() {
     int num{0};
+    
     cout <<"How many elts are in your array? ";
     cin >> num;
     int* arr = new int[num]{5, 4}; // allocate memory for an array of ints
@@ -22,8 +24,8 @@ void practice() {
     for (int i{0}; i < num; ++i) {
         cout << arr[i] << " ";
     }
-    delete[] arr; // deallocate memory
-    arr = nullptr; // set arr to nullptr to avoid dangling pointer
+    cout << endl;
+    return arr;
 }
 int main() {
     // int i = new int; // error: new returns a pointer to the allocated memory
