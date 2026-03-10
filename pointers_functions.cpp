@@ -9,6 +9,11 @@
 
 using namespace std;
 
+void swap_ref(int &r1, int &r2) {
+    int temp = r1;
+    r1=r2;
+    r2=temp;
+}
 void swap(int* p1, int* p2) {
     int temp = *p1;
     *p1=*p2;
@@ -19,6 +24,7 @@ void swap(int* p1, int* p2) {
 // it is in essence the same as passing by reference
 void increment(int* iptr) {
     // iptr++; this would increment the pointer, not the value it points to
+    // *iptr = *iptr + 1;
     (*iptr)++; // increment the value that iptr points to
 }
 int main() {
@@ -29,5 +35,7 @@ int main() {
     int num2=5;
     swap(&num1, &num2);
     cout << "After swap, num1: " << num1 << ", num2: " << num2 << endl;
+    swap_ref(num1, num2);
+    cout << "After swap_ref, num1: " << num1 << ", num2: " << num2 << endl;
     return 0;
 }

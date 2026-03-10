@@ -24,12 +24,13 @@ int main() {
     double* dptr = &d;
     d=d+1.0;
     cout << "Value of *dptr: " << *dptr << endl;
-    *dptr += 1.0;
+    (*dptr) += 1.0;
     cout << "Value of d: " << d << endl;
 
     // uninitialized pointer -- also called a dangling pointer
     // DANGEROUS -- can cause segmentation faults
     int* iptr2;
+    cout << "uninitialized pointer iptr2: " << iptr2 << endl; // junk value  
     cout << "contents of iptr2: " << *iptr2 << endl;
 
     // not to be confused with reference variables
