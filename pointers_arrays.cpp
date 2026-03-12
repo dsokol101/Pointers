@@ -1,18 +1,16 @@
 #include <iostream>
-/** 
- * pointer arithmetic
- * how to dereference using pointer arithmetic
- * how to use a pointer as an iterator to iterate through an array in a for loop.
- */
-// how is the name of an array related to the pointer type?
-
 using namespace std;
 // this function prints the elements of an array
+// the c-style array "decays" to a pointer when passed to a function
+// so we need to also pass the size of the array as a parameter
 // [] dereferences the pointer
-void print_array(int* arr, size_t size) {
+void print_array(const int* nums, size_t size) {
     for (size_t i = 0; i < size; i++) {
-        cout << arr[i] << " "; // this is the same as *(arr + i)
+        cout << nums[i] << " "; // this is the same as *(nums + i)
     }
+    for (const int* iptr=nums; iptr < nums + size; iptr++) {
+        cout << *iptr << " "; // this is the same as nums[i]
+    }   
     cout << endl;
     cout << "size of arr in print_array function: " << sizeof arr << endl; // this will print the size of a pointer, not the size of the array  
 }
