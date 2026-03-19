@@ -1,10 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstddef> // for size_t
-#include <cstring>
-
-/** 10/22
- */
+#include <cstring> // c-string library functions like strlen and strcpy
 
 using namespace std;
 // this is the typical way of getting a C-style string as a parameter
@@ -12,6 +9,7 @@ void print_cstring(const char* str)
 {
     // it is OK in C++ to print 
     // 1
+    cout << "Hello World!" << endl;
     cout << str << endl;
     // 2
     for (size_t i = 0; str[i] != '\0'; i++)
@@ -39,13 +37,19 @@ void print_cstring(const char* str)
         ptr++;
     }
     cout << endl;
+
+    while (*str) // this is the same as while(*ptr) because str is a pointer to the first character of the string
+        cout << *str++;
+        
 }
 int main()
 {
-   // char str[6] = {'H', 'e', 'l', 'l', 'o', '\0'}; 
-    char cstring[] = "Hello, world!";
+    char str[]{'H', 'e', 'l', 'l', 'o', '\0'}; 
+    char cstring[]="Hello, world!"; // this works only for string literals
     print_cstring(cstring);
+
     char* str2 = new char[strlen(cstring) + 1]; // +1 for null terminator
+    
     strcpy(str2, cstring); // copy cstring to str2
     print_cstring(str2);
     delete[] str2; // deallocate memory

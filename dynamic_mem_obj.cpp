@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
-/* 10/24/2025
-
+/* 
 A pointer to an object is declared with the same * syntax as a pointer to a built-in type.
 when you allocate an object with new, the object gets allocated on the heap and 
 its constructor is called.
@@ -16,7 +15,7 @@ int main()
     string s; // this allocates an object of type string on the stack and calls the default
     // constructor
     string s2{}; // same as above
-    string s3(); // function declaration, NOT an object
+    //string s3(); // function declaration, NOT an object
 
     string *sptr = new string{"hello, world!"}; // allocates a string object on the heap
     string *sptr2 = new string(); // calls default constructor
